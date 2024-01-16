@@ -1,0 +1,103 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Times New Roman", Times, serif;
+}
+
+@media only screen and (max-width: 840px) {
+
+    /*  This essentially states that this rules applies only when the html to which it is applied is
+    being viewed on a screen (as opposed to, say, a printer) and window width is less than 840px.
+    Order matters - you need to set the rules for smaller screens before larger ones*/
+    .denymobile {
+        display: none
+    }
+}
+
+@media only screen and (min-width: 840px) {
+
+    /*  This essentially states that this rules applies only when the html to which it is applied is
+    being viewed on a screen (as opposed to, say, a printer) and window width is at least 840px.
+    Order matters - you need to set the rules for smaller screens before larger ones*/
+    .denydesktop {
+        display: none
+    }
+}
+
+/* give screens larger than 1240px an 8% l/r margin */
+@media screen and (min-width: 1240px) {
+    body {
+        margin: 0 8% 0 8%;
+    }
+}
+
+.displaydiv {
+    position: relative;
+    width: 100%;
+    margin-bottom: 2vh;
+    border-style: solid;
+    border-radius: 1vw;
+    border-width: thin;
+    border-color: black;
+    background-color: lightskyblue;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, lightskyblue), color-stop(100%, #337ab7));
+    background-image: -webkit-linear-gradient(to bottom, lightskyblue, #337ab7);
+    background-image: -moz-linear-gradient(to bottom, lightskyblue, #337ab7);
+    background-image: -o-linear-gradient(to bottom, lightskyblue, #337ab7);
+    background-image: linear-gradient(to bottom, lightskyblue, #337ab7);
+}
+
+.standardpopup {
+    position: absolute;
+    left: 50%;
+    padding: 1rem 1rem 2rem 1rem;
+    text-align: left;
+    box-sizing: border-box;
+    border: 5px solid green;
+    border-radius: 10px;
+    z-index: 5;
+    background-color: white;
+}
+
+.standardmobilepopup {
+    position: fixed;
+    padding: 1rem;
+    border: 1px solid black;
+    z-index: 5;
+    background-color: gainsboro;
+}
+
+.standardcancelicon {
+    position: absolute;
+    display: inline-block;
+    margin: .5rem .5rem auto auto;
+    text-align: right;
+    cursor: pointer;
+}
+
+.mobileheading {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Portrait orientation for carousel display*/
+/* see https: //fjolt.com/article/javascript-detecting-device-orientation */
+
+@media screen and (orientation: portrait) {
+
+    .carouseldisplaydiv {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Landscape orientation - not sure this is working */
+@media screen and (orientation: landscape) {
+    .carouseldisplaydiv {
+        width: auto;
+        height: 80%;
+    }
+}
